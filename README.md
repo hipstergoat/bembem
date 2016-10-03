@@ -70,7 +70,7 @@ Then include mixins into your Sass styles and Pug views:
 ```
 
 `component.view.pug`
-```scss
+```jade
 include /bembem // include bembem mixins
 
 - var $prefix = 'item-'
