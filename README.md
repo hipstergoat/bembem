@@ -91,3 +91,8 @@ include /bembem // include bembem mixins
 - Jade: http://jade-lang.com/
 - Sass: http://sass-lang.com/
 - Bemto: https://github.com/kizu/bemto
+
+---
+## Credits
+- Sass Mixins by Giuliano Kranevitter <http://github.com/giulianok>
+- Pug Mixins based on Bemto <https://github.com/kizu/bemto> 
