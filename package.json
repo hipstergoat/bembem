@@ -1,6 +1,6 @@
 {
     "name": "bembem",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "mixins for writing BEM-style code",
     "main": "index.js",
     "scripts": {
