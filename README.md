@@ -12,7 +12,7 @@
 In order to use absolute include paths with Gulp.js you must add the bembem path into both sass _(includePaths)_ and pug _(basedir)_ options:
 
 
-### webpack
+### webpack 2
 
 `webpack.config.js`
 
@@ -27,16 +27,19 @@ module.exports = {
     output: {
         filename: '[name].js'
     },
-    module: {
+    rules: {
         {
             test: /\.scss$/,
-            loaders: ['sass'],
+            loader: 'sass',
             options: {
               includePaths: [bembem.includePaths]
             }
         }, {
             test: /\.pug$/,
-            loaders: ['pug?root=' + bembem.includePaths] // for absolute includes
+            loader: 'pug-loader',
+            options: {
+              root: bembem.includePaths
+            }
         }]
     }
 };
