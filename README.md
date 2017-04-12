@@ -3,6 +3,8 @@
 
 
 ## Install
+
+### BemBem
 `npm install bembem --save-dev`
 
 ---
@@ -17,32 +19,39 @@ In order to use absolute include paths with Gulp.js you must add the bembem path
 `webpack.config.js`
 
 ```javascript
-const webpack = require('webpack');
 const bembem = require('bembem');
 
 module.exports = {
-    entry: {
-        app: ['./src/main']
-    },
+    entry: './app.js',
     output: {
-        filename: '[name].js'
+        filename: './dist/app.bundle.js',
     },
-    rules: {
-        {
-            test: /\.scss$/,
-            loader: 'sass',
-            options: {
-              includePaths: [bembem.includePaths]
+    devtool: 'source-map',
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // creates style nodes from JS strings
+                }, {
+                    loader: "css-loader" // translates CSS into CommonJS
+                }, {
+                    loader: "sass-loader", // compiles Sass to CSS
+                    options: {
+                        includePaths: [bembem.includePaths]
+                    }
+                }]
+            },
+            {
+                test: /\.pug$/,
+                loader: 'pug-loader',
+                options: {
+                    root: bembem.includePaths
+                }
             }
-        }, {
-            test: /\.pug$/,
-            loader: 'pug-loader',
-            options: {
-              root: bembem.includePaths
-            }
-        }]
+        ]
     }
-};
+}
 ```
 
 ### Gulp.js
