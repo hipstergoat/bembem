@@ -30,14 +30,14 @@ module.exports = {
     module: {
         {
             test: /\.scss$/,
-            loaders: ['sass']
+            loaders: ['sass'],
+            options: {
+              includePaths: [bembem.includePaths]
+            }
         }, {
             test: /\.pug$/,
             loaders: ['pug?root=' + bembem.includePaths] // for absolute includes
         }]
-    },
-    sassLoader: {
-      includePaths: [ bembem.includePaths ] // for absolute includes
     }
 };
 ```
